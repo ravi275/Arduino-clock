@@ -35,9 +35,6 @@ void setup()
   digitalWrite(A3,HIGH);// as +VCC for RTC module
   digitalWrite(A2,LOW); // as GND for RTC module
   
-  
-
- 
   Wire.begin();
   display.begin();
   display.setContrast(60);
@@ -58,9 +55,6 @@ void loop()
 
 
 }
-
-
-
 
 //***************** PAGE-1 ***************
 void Disp1()
@@ -107,9 +101,6 @@ void Disp1()
   display.display();
   delay(5000);
 }
-
-
-
 
 //***************** PAGE-2***************
 
@@ -182,10 +173,6 @@ void Disp2()
   delay(5000);
 }
 
-
-
-
-
 //***************** PAGE-3 ***************
 void Disp3()
 {
@@ -210,10 +197,6 @@ void Disp3()
 
 }
 
-
-
-
-
 byte dayOfWeek(int y, byte m, byte d)
 {  
   static int t[] = {
@@ -221,9 +204,6 @@ byte dayOfWeek(int y, byte m, byte d)
   y -= m < 3;
   return ((y + y/4 - y/100 + y/400 + t[m-1] + d) % 7) + 1; 
 }
-
-
-
 
 void drawlines()
 {  
