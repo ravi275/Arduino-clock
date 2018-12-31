@@ -1,4 +1,6 @@
-#include <SoftwareSerial.h>
+/*ARDUINO BASED CLOCK WITH NOKIA 5110 LCD AND DS3231 MODULES.
+# Auther : Raviraju Paidimala
+# Email  : raviraju606@gmail.com */
 
 #include <DS3231.h>
 #include <Wire.h>
@@ -35,6 +37,9 @@ void setup()
   digitalWrite(A3,HIGH);// as +VCC for RTC module
   digitalWrite(A2,LOW); // as GND for RTC module
   
+  
+
+ 
   Wire.begin();
   display.begin();
   display.setContrast(60);
@@ -49,12 +54,15 @@ void setup()
 void loop()
 {
 
-  Disp1(); // Call Screen1
-  Disp2(); // Call screen2
-  Disp3(); // Call screen3
+  Disp1(); // Call page1
+  Disp2(); // Call page2
+  Disp3(); // Call page3
 
 
 }
+
+
+
 
 //***************** PAGE-1 ***************
 void Disp1()
@@ -101,6 +109,9 @@ void Disp1()
   display.display();
   delay(5000);
 }
+
+
+
 
 //***************** PAGE-2***************
 
@@ -173,6 +184,10 @@ void Disp2()
   delay(5000);
 }
 
+
+
+
+
 //***************** PAGE-3 ***************
 void Disp3()
 {
@@ -197,6 +212,10 @@ void Disp3()
 
 }
 
+
+
+
+
 byte dayOfWeek(int y, byte m, byte d)
 {  
   static int t[] = {
@@ -204,6 +223,9 @@ byte dayOfWeek(int y, byte m, byte d)
   y -= m < 3;
   return ((y + y/4 - y/100 + y/400 + t[m-1] + d) % 7) + 1; 
 }
+
+
+
 
 void drawlines()
 {  
